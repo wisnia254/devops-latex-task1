@@ -13,9 +13,9 @@ jobs:
                   - name: Install dictionaries
                     run: |
                       npm install @cspell/dict-pl_pl
-                      nmp install @cspell/dict-latex
-                      nmp install @cspell/dict-software-terms
-                      nmp install @cspell/dict-golang
+                      npm install @cspell/dict-latex
+                      npm install @cspell/dict-software-terms
+                      npm install @cspell/dict-golang
                   - name: Run cspell
                     uses: steetsidesoftware/cspell-action@v2
                     with: 
