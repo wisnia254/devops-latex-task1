@@ -1,0 +1,25 @@
+name: Check spelling
+on: 
+    pull_request:
+    push:
+        branches:
+           - main
+jobs:
+    spellcheck:
+              runs-on: ubuntu-latest
+              steps:
+                  - name: Set up Git repository
+                    uses: actions/checkout@v3
+                  - name: Install dictionaries
+                    run: 
+                      npm install @cspell/dict-pl_pl
+                      nmp install @cspell/dict-latex
+                      nmp install @cspell/dict-software-terms
+                      nmp install @cspell/dict-golang
+                  - name: Run cspell
+                    uses: steetsidesoftware/cspell-action@v2
+                    with: 
+                        files: "*.tex" 
+                        check_dot_files: false
+                        strict: true
+                        incremental_file_only: false 
